@@ -1,0 +1,2 @@
+acciones/acciones.txt
+serializado/info.dat
