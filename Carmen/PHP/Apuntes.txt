@@ -1,0 +1,194 @@
+- Hay dos tipos de etiqueta para insertar php:
+    -  Para XHTML o XML 
+        <?php
+            echo (“si quiere servir documentos XML,haga esto\n”);
+            Instrucciones PHP
+        ?>
+    - Formato corto
+        <?
+            Instrucciones PHP
+        ?>
+Pero solo la primera asegura la portibilidad, ya que para la forma corta debemos activar en el fichero php.ini la directiva short_open_tag = on
+Para utilizar el formato de etiquetas de ASP asp_tags = on
+
+- La sintaxis es sensible a mayusculas, y las instrucciones se separan con ; igual que en C. La marca final ?> significa un ;. Los comentarios son como en C
+    - /**/
+    - //
+    - #
+
+- Para imprimir por pantalla usamos o print o echo
+    - Con print se separan con comas para mostrar cadenas separadas.
+    - Con echo se separan con puntos.
+
+- Las variables son precedidas de un signo $, el nombre es sensible a mayusculas.
+
+
+
+
+
+
+
+
+- Constantes predefinidas
+    - PHP_VERSION muestra la version de php que se esta utilizando.
+    - PHP_OS muestra el nombre del SO que ejecuta PHP.
+    - TRUE y FALSE
+    - E_ERROR indica los errores de interpretacion que no se pueden recuperar.
+    - E_PARSE muestra los errores de sintaxis que no se pueden recuperar.
+    - E_ALL muestra todas las constantes que empiezan por E_
+
+- Operadores aritmeticos son +, -, *, /, %, ++, --
+
+- Operador de asignacion es =
+
+- Operadores combinados son -=, +=, *=, /=, .=, %=
+
+- Operadores de comparacion son ==, !=, <, >, <=, >=
+
+- Operador ternario exp1 ? exp2 : exp3
+
+- Operador de indentidad === compara tambien tipos de variables.
+
+- Operador de control de error @
+
+- Operadores logicos son && and, || or, !, xor.
+
+- Operadores de cadena:
+    - Concatenacion: .
+    - Asignacion de concatenacion: .=
+
+- La inclusion de ficheros externos PHP se consigue con include() y require(). En caso de error include() produce un warning y require() un error fatal. Se usará require() si al producirse un error debe
+interrumpirse la carga de la página.
+
+
+
+
+
+- Delimitacion
+    - El delimitador "" inserta el valor de las variables.
+    - El delimitador '' no inserta el valor en las variables.
+    - Escape \$, \\, \'.
+
+- Visualizacion
+    - Echo y print para mostrar (mejo echo)
+    - Printf (formato[argumentos])
+    - Sprintf es igual que printf pero devuelve una cadena formateada.
+    - Printf y dentro de la frase si metemos %d es decimal si metemos %x es hexadecimal miniscula, si la X es mayuscula se escribe en mayuscula, %octal, %e decimal exponencial, %b binario.
+
+- Busqueda
+    - strstr(cadena, cadena_buscar, false) Devuelve desde la primera aparición de la cadena (incluyendola -
+    false) hasta el fnal. Busca coincidencia total. Case-sensitve. strstr(“carmenduran@domenicoscarlat.es",“@domenico"); Devuelve @domenicoscarlat.es en este caso es case sensitive.
+
+    - strrchr(cadena, caracter_busqueda) Devuelve desde la últma aparición del 1er carácter (incluido) hasta
+    el fnal (Sólo se utliza el primer carácter). Case-sensitve strrchr ("Esto es muy bonito","so"); Devuelve s muy bonito.
+
+    - str(cadena. caracter_busqueda) lo mismo que el strstr pero sin ser case sensitive.
+
+    - strpos(cad1, cad2 [,desplz]) Busca la primera posición de aparición de una cadena a partr de
+    desplz (por defecto 0). Coincidencia total. Si no la encuentra devuelve FALSE. strpos ("Este espacio es muy bonito","es",7); // 13.
+
+    - strspn(cadena, máscara, comienzo, longitud)
+
+    - strcspn(cadena, máscara, comienzo, longitud)
+
+- Comparacion
+    - strcmp(cad1, cad2)
+
+    - strcasecmp(cad1, cad2)
+
+    - strncmp(cad1, cad2,longitud)
+
+    - strnatcmp(cad1, cad2)
+
+- Operacion
+    - int strlen(string $cadena)
+
+    - substr($cadena, $inicio, $lon)
+
+    - substr_replace($cadena, $reemplazo, $ini, $charsABorrar)
+
+    - str_replace($cadBusq,$cadReempl,$texto)
+
+    - strtr(cadena, cadBus, cadRee)
+
+    - substr_count($cadena, $patron, $inicio, $longitud)
+
+    - mixed count_chars(string $string [, int $mode 0 ])
+
+- Modificar
+    - rtrim($cadena, $listaChar)
+
+    - chop($cadena)
+
+    - Itrim(), trim()
+
+    - str_pad($cadena, $long, $cadenaRelleno)
+
+    - strtolower($cad) / strtoupper($cad)
+
+    - ucfirst($texto)
+
+    - ucwords($texto)
+
+    - addslashes($cadena)
+
+    - stripslashes($cadena)
+
+    - nl2br($cadena)
+
+    - addcslashes($cadena, $listcar)
+
+    - stripcslashes($cadena)
+
+    - quotemeta($cadena)
+
+    - string htmlspecialchars($string, $flags, $codigo)
+
+    - string htmlentities($string, $flags, $codigo)
+
+    - htmlspecialchars_decode()
+
+    - html_entity_decode()
+
+    - strtok($cadena, $delimitador)
+
+    - chunk_split($cadena[, $long[,$separador]])
+
+    - array str_split(string $string [, int $split_length = 1])
+
+    - array explode(string $delimiter, string $string[, int $limit])
+
+
+
+- Ficheros
+    - fopen([nombrearchivo], "r r+ w w+ a a+ x x+ c c+ e")
+        ‘r’ Sólo lectura. Puntero al inicio.
+        ‘r+’ Lectura/escritura. Puntero al inicio.
+        ‘w’ Sólo escritura. Puntero al inicio. Si existe el fichero borra lo que había, sino lo intenta crear.
+        ‘w+’ Lectura/escritura. Puntero al principio. Si existe el fichero borra lo que había, sino lo intenta crear.
+        ‘a’ Sólo escritura. Puntero al final. Si no existe lo intenta crear.
+        ‘a+’ Lectura/escritura. Puntero al final.
+        ‘x’, ‘x+’ Igual que w, w+ pero evitando la creación si el fichero existe.
+        ‘c’, ‘c+’ Igual que w , w+ pero sin truncar el fichero cuando ya existe
+
+    - die() para probar si el fichero y la ejecucion de abrir o cerar el mismo han funcionado
+
+    - fclose() cierra el archivo utilizado USAR SIEMPRE
+
+    - sudo chmod 777 [nombrearchivo] para dar permisos al archivo a modificar
+
+    Ejemplo1: leer el contenido de un fichero línea a línea:
+    $a = fopen('datos.txt', 'r');
+    while(!feof($a)){
+    echo fgets($a) . '<br>';}
+    fclose($a);
+
+    Ejemplo2: leer el contenido de un fichero de una vez
+    $a = file('datos.txt');
+    foreach($a as $linea)
+    echo $linea . '<br>';
+
+    Ejemplo3: mostrar una página web de otro sitio (las imágenes fallan si las URL son relativas)
+    $a =file('http://www.upm.es/index.html');
+    foreach($a as $linea)
+    echo $linea;
