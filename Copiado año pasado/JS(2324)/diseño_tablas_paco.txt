@@ -1,6 +1,0 @@
-cuatro formas de hacer tablas segun pacco :
- sacar un churrito de tabla desde php con ajax
-con innerhtml con meter todo el codigo dentro 
-con dom 
-con document.write
-con html
